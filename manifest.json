@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Resume Keyword Matcher",
+  "version": "1.0",
+  "description": "Compare your resume with job descriptions and boost your ATS score.",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": "assets/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.linkedin.com/*",
+        "*://*.indeed.com/*",
+        "*://*.naukri.com/*",
+        "*://*.monster.com/*",
+        "*://*.glassdoor.com/*",
+        "*://*/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
